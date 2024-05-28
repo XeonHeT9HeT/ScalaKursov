@@ -10,13 +10,19 @@ import scalafx.scene.image.*
 import scalafx.scene.control.Alert.AlertType
 import scala.collection.immutable.HashMap
 
-
+import functions.NewError
+import functions.ErrorInfo
+import functions.Attempts
+import functions.Message
+import functions.fileContents
 import scala.io.Source
 import java.io.File
 import scala.collection.mutable
 
 class gui {
   object app extends JFXApp3 {
+
+    val generatedError = functions.NewError.getRandomError()
     override def start(): Unit = {
       stage = new JFXApp3.PrimaryStage {
         title = "Car repairer"
@@ -43,7 +49,7 @@ class gui {
             val result = dialog.showAndWait()
 
             result match {
-              case Some(err) => NewError.repairError(err, generatedError)
+              case Some(err) => functions.NewError.repairError(err, generatedError)
                 if (Attempts == 0) {
                   content = view
                 }
@@ -139,6 +145,10 @@ class gui {
         }
       }
     }
+  }
+
+  def main(args: Array[String]): Unit = {
+    app.main(args)
   }
 
 }

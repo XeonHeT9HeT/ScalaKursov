@@ -15,8 +15,8 @@ import scala.io.Source
 import java.io.File
 import scala.collection.mutable
 
-object main {
-  import gui._
+object functions {
+
 //старый код глобальных переменных
   // Глобальные переменные
   val fileContents: String = Source.fromFile("ErrorHelper.txt").getLines.mkString
@@ -184,9 +184,12 @@ object main {
 // Графический интерфейс
 
 
-  def main(args: Array[String]): Unit = {
-    val generatedError = NewError.getRandomError()
-    val graphical = gui()
-    graphical.app.main(args)
-  }
+//  def main(args: Array[String]): Unit = {
+//    val graphical = gui()
+//    graphical.app.main(args)
+//  }
 }
+
+
+
+
